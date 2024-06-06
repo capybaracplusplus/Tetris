@@ -24,9 +24,9 @@ int32_t main () {
         left,
     };
     enum class figures {
-        emptiness,      // пустое поле         "::"
-        falling_shape, //  падающая форма      "░░"
-        static_shape  //   статическая фигура  "██"
+        emptiness,      // пустое поле
+        falling_shape, //  падающая фигура
+        static_shape  //   статическая фигура
     };
     std::map<figures, std::string> map_figures = {
             {figures::emptiness, "::"},
