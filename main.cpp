@@ -50,11 +50,6 @@ struct player {
     bool dynamic;        // падает ли фигура да или нет
 };
 
-// генерю рандомное число
-// генерю фигурку по числу
-// вызываю функцию которая создает вектор v с этой фигуркой
-// вывожу если могу, если нет, то проиграл
-// заставляю её падать
 
 int random(void) {
     std::random_device rd;
@@ -78,7 +73,7 @@ std::vector<std::vector<figures>> figure_1() {
     return array;
 }
 
-std::vector<std::vector<figures>>  figure_2() {
+std::vector<std::vector<figures>> figure_2() {
     // dark blue figure
     std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
     array[0][2] = figures::falling_shape;
@@ -88,7 +83,7 @@ std::vector<std::vector<figures>>  figure_2() {
     return array;
 }
 
-std::vector<std::vector<figures>>  figure_3() {
+std::vector<std::vector<figures>> figure_3() {
     // light blue figure
     std::vector<std::vector<figures>> array(4, std::vector<figures>(4, figures::emptiness));
     array[0][0] = figures::falling_shape;
@@ -98,7 +93,7 @@ std::vector<std::vector<figures>>  figure_3() {
     return array;
 }
 
-std::vector<std::vector<figures>>  figure_4() {
+std::vector<std::vector<figures>> figure_4() {
     // green figure
     std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
     array[1][2] = figures::falling_shape;
@@ -108,7 +103,7 @@ std::vector<std::vector<figures>>  figure_4() {
     return array;
 }
 
-std::vector<std::vector<figures>>  figure_5(){
+std::vector<std::vector<figures>> figure_5() {
     // red figure
     std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
     array[1][0] = figures::falling_shape;
@@ -118,7 +113,7 @@ std::vector<std::vector<figures>>  figure_5(){
     return array;
 }
 
-std::vector<std::vector<figures>>  figure_6(){
+std::vector<std::vector<figures>> figure_6() {
     // pink figure
     std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
     array[0][0] = figures::falling_shape;
@@ -135,7 +130,6 @@ figure_array transform_figure(int random_number) {
     switch (random_number % 7) {
         case 0:
             return figure_0;
-            /*
         case 1:
             return figure_1;
         case 2:
@@ -148,7 +142,6 @@ figure_array transform_figure(int random_number) {
             return figure_5;
         case 6:
             return figure_6;
-            */
     }
 }
 
@@ -186,9 +179,6 @@ int main() {
 
         break;
     }
-
-
-
 
 
     std::thread th1([]() {
