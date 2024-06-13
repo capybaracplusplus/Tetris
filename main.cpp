@@ -1,11 +1,9 @@
 #include <iostream>
-#include <stdint.h> // для int32_t
 #include <conio.h> // для считывания нажатий
 #include <map>
 #include <thread>
 #include <windows.h>
 #include <vector>
-#include <cstdlib> // для функций rand() и srand()
 #include <random>
 
 void gotoxy(int xpos, int ypos) {
@@ -70,17 +68,65 @@ std::vector<std::vector<figures>> figure_0() {
     return array;
 }
 
-void figure_1();
+std::vector<std::vector<figures>> figure_1() {
+    // orange figure
+    std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
+    array[0][0] = figures::falling_shape;
+    array[1][0] = figures::falling_shape;
+    array[2][0] = figures::falling_shape;
+    array[2][1] = figures::falling_shape;
+    return array;
+}
 
-void figure_2();
+std::vector<std::vector<figures>>  figure_2() {
+    // dark blue figure
+    std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
+    array[0][2] = figures::falling_shape;
+    array[1][2] = figures::falling_shape;
+    array[2][2] = figures::falling_shape;
+    array[2][1] = figures::falling_shape;
+    return array;
+}
 
-void figure_3();
+std::vector<std::vector<figures>>  figure_3() {
+    // light blue figure
+    std::vector<std::vector<figures>> array(4, std::vector<figures>(4, figures::emptiness));
+    array[0][0] = figures::falling_shape;
+    array[1][0] = figures::falling_shape;
+    array[2][0] = figures::falling_shape;
+    array[3][0] = figures::falling_shape;
+    return array;
+}
 
-void figure_4();
+std::vector<std::vector<figures>>  figure_4() {
+    // green figure
+    std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
+    array[1][2] = figures::falling_shape;
+    array[1][1] = figures::falling_shape;
+    array[2][1] = figures::falling_shape;
+    array[2][0] = figures::falling_shape;
+    return array;
+}
 
-void figure_5();
+std::vector<std::vector<figures>>  figure_5(){
+    // red figure
+    std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
+    array[1][0] = figures::falling_shape;
+    array[1][1] = figures::falling_shape;
+    array[2][1] = figures::falling_shape;
+    array[2][2] = figures::falling_shape;
+    return array;
+}
 
-void figure_6();
+std::vector<std::vector<figures>>  figure_6(){
+    // pink figure
+    std::vector<std::vector<figures>> array(3, std::vector<figures>(3, figures::emptiness));
+    array[0][0] = figures::falling_shape;
+    array[0][1] = figures::falling_shape;
+    array[0][2] = figures::falling_shape;
+    array[1][1] = figures::falling_shape;
+    return array;
+}
 
 using figure_array = std::vector<std::vector<figures>>  (*)();
 
@@ -129,12 +175,20 @@ int main() {
 
     std::vector<std::vector<figures>> render(20, std::vector<figures>(10, figures::emptiness));
 
-    for (int i{0}; i < 20; i++) {
-        for (int j{0}; j < 10; j++) {
-            std::cout << map_figures[render[i][j]];
+    while (true) {
+        for (int i{0}; i < 20; i++) {
+            for (int j{0}; j < 10; j++) {
+                std::cout << map_figures[render[i][j]];
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
+
+
+        break;
     }
+
+
+
 
 
     std::thread th1([]() {
